@@ -1,0 +1,12 @@
+"USD","ARP",.4
+"ARP","USD",2.5
+"USD","BRR",1
+"BRR","USD",1
+"USD","CAD",1
+"CAD","USD",1
+"ARP","BRR",1
+"BRR","ARP",1
+"ARP","CAD",1
+"CAD","ARP",1
+"BRR","CAD",.25
+"CAD","BRR",4

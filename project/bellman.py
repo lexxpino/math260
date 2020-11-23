@@ -3,6 +3,9 @@ API Key: b28f0f373c33c72b563bdb1267874ea1d86d474254a8febf144fc2ee90d67577
 '''
 #USD/Yen/GBP/KRW/CAD
 from math import log
+import csv
+
+
 
 class Arbitrage:
     def __init__(self, currencies, rates):
@@ -70,20 +73,16 @@ class Graph:
 
 
 if __name__ == "__main__":
-    rates = [("USD", "EUR", 1.1837), 
-             ("EUR","USD", 0.8429), 
-             ("EUR", "GBP", 1.1152), 
-             ("GBP", "EUR", .8966), 
-             ("USD","GBP", 1.3227),
-             ("GBP","USD", .7560),
-             ("USD","JPY", .009571),
-             ("JPY","USD", 104.48),
-             ("EUR","JPY", .008070),
-             ("JPY","EUR", 123.92),
-             ("GBP","JPY", .007237),
-             ("JPY","GBP", 138.19)]
-    
-    currencies = ["USD", "EUR", "GBP", "JPY"]
-    
-    a = Arbitrage(currencies, rates)
-    a.find_arbitrage()
+
+    data = []
+    curr = []
+    with open('math260/project/data5.csv') as csvfile:
+        reader = csv.reader(csvfile)
+        for row in reader:
+            row[2] = float(row[2])
+            data.append(row)
+            if row[0] not in curr:
+                curr.append(row[0])
+
+    b = Arbitrage(curr, data)
+    b.find_arbitrage()
